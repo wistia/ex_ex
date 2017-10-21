@@ -24,6 +24,26 @@ defmodule ExEx.Map do
   end
 
   @doc """
+  Converts the map's keys from atoms to strings.
+
+  If the keys are already strings, then they are preserved.
+
+  ## Examples
+
+      iex> ExEx.Map.stringify_keys(%{foo: "bar", baz: 123})
+      %{"foo" => "bar", "baz" => 123}
+
+  """
+  def stringify_keys(map) do
+    for {key, val} <- map, into: %{} do
+      cond do
+        is_atom(key) -> {"#{key}", val}
+        true -> {key, val}
+      end
+    end
+  end
+
+  @doc """
   Removes keys from the map for which the respective value is `nil`.
 
   ## Examples
