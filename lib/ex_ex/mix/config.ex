@@ -1,4 +1,8 @@
 defmodule ExEx.Mix.Config do
+  @moduledoc """
+  TODO
+  """
+
   @doc """
   Used for adding `{:system, MY_VAR}` style support to values defined in
   a Mix.Config. This function will lookup these values from System if of

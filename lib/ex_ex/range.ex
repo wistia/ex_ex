@@ -1,4 +1,8 @@
 defmodule ExEx.Range do
+  @moduledoc """
+  TODO
+  """
+
   @doc """
   Bounds a value to the given range
   """

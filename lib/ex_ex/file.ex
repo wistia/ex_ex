@@ -1,4 +1,8 @@
 defmodule ExEx.File do
+  @moduledoc """
+  TODO
+  """
+
   @doc """
   Recursively list files in `path`
   """
@@ -15,6 +19,19 @@ defmodule ExEx.File do
 
       true ->
         []
+    end
+  end
+
+  @doc """
+  Determine whether a file exists and is non-empty
+  """
+  def non_empty?(path) do
+    with true <- File.exists?(path),
+         {:ok, %{size: size}} <- File.stat(path),
+         true <- size > 0 do
+      true
+    else
+      _ -> false
     end
   end
 end

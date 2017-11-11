@@ -1,4 +1,8 @@
 defmodule ExEx.Enum do
+  @moduledoc """
+  TODO
+  """
+
   @doc """
   Returns a list where each item is the result of invoking
   `fun` on each corresponding item of `enumerable` in parallel.

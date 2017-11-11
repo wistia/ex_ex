@@ -16,9 +16,10 @@ defmodule ExEx.Map do
   """
   def atomize_keys(map) do
     for {key, val} <- map, into: %{} do
-      cond do
-        is_atom(key) -> {key, val}
-        true -> {String.to_atom(key), val}
+      if is_atom(key) do
+        {key, val}
+      else
+        {String.to_atom(key), val}
       end
     end
   end
@@ -36,9 +37,10 @@ defmodule ExEx.Map do
   """
   def stringify_keys(map) do
     for {key, val} <- map, into: %{} do
-      cond do
-        is_atom(key) -> {"#{key}", val}
-        true -> {key, val}
+      if is_atom(key) do
+        {"#{key}", val}
+      else
+        {key, val}
       end
     end
   end
