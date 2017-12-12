@@ -20,4 +20,7 @@ defmodule ExEx.Enum do
     Enum.map(enumerable, &Task.async(fn -> fun.(&1) end))
     |> Enum.map(&Task.await/1)
   end
+
+  def has_key?(enum, key) when is_map(enum), do: Map.has_key?(enum, key)
+  def has_key?(enum, key) when is_list(enum), do: Keyword.has_key?(enum, key)
 end
