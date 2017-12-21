@@ -2,7 +2,7 @@ defmodule ExEx.Dbg do
   @doc """
   A remsh friendly wrapper for tracing function calls
   """
-  def trace(mod \\ :_, fun \\ :_, arity \\ :_, match_spec_name \\ :caller_trace, flags \\ [:c]) do
+  def trace(mod \\ :_, fun \\ :_, arity \\ :_, item \\ :processes, match_spec_name \\ :caller_trace, flags \\ [:c]) do
     # Register a tracer handler
     # :io.format must be used or else trace messages will go to
     # stdio on the primary node in a remsh session
@@ -28,7 +28,7 @@ defmodule ExEx.Dbg do
 
     # Decide which processes/ports to trace
     # See erlang docs for more flag values
-    :dbg.p(:processes, flags)
+    :dbg.p(item, flags)
   end
 
   @doc """
