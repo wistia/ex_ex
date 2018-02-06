@@ -9,7 +9,13 @@ defmodule ExEx.Mixfile do
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       aliases: [compile: ["compile --warnings-as-errors"]],
-      deps: deps()
+      deps: deps(),
+      package: [
+        description: "A collection of functions that extend the capabilities of Elixir's standard library modules.",
+        maintainers: ["Wistia"],
+        licenses: ["MIT"],
+        links: %{"github" => "https://github.com/wistia/ex_ex"}
+      ]
     ]
   end
 
@@ -31,6 +37,8 @@ defmodule ExEx.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:ex_doc, ">= 0.0.0", only: :dev}
+    ]
   end
 end
