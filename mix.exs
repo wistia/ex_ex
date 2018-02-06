@@ -10,6 +10,7 @@ defmodule ExEx.Mixfile do
       start_permanent: Mix.env() == :prod,
       aliases: [compile: ["compile --warnings-as-errors"]],
       deps: deps(),
+      source_url: "https://github.com/wistia/ex_ex",
       package: [
         description: "A collection of functions that extend the capabilities of Elixir's standard library modules.",
         maintainers: ["Wistia"],
